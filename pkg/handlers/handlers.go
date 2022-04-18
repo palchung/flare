@@ -1,9 +1,11 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/palchung/flare/pkg/config"
+	"github.com/palchung/flare/pkg/helpers"
 	"github.com/palchung/flare/pkg/models"
 	"github.com/palchung/flare/pkg/render"
 )
@@ -59,6 +61,17 @@ func (m *Repository) Majors(w http.ResponseWriter, r *http.Request) {
 
 func (m *Repository) Availability(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, r, "search-availability.page.html", &models.TemplateData{})
+}
+
+func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+
+	w.Write([]byte(fmt.Sprintf("start date is")))
+
 }
 
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
