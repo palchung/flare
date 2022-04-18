@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/palchung/flare/pkg/config"
-	"github.com/palchung/flare/pkg/handlers"
+	"github.com/palchung/flare/internal/config"
+	"github.com/palchung/flare/internal/handlers"
 )
 
 func routes(app *config.AppConfig) http.Handler {
